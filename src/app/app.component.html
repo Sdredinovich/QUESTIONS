@@ -1,13 +1,14 @@
-
-<div *ngFor="let theme of themes | keyvalue">
-  <h1 style="margin-left: 15px">{{ theme.key }}</h1>
-  <mat-accordion>
-    <mat-expansion-panel *ngFor="let theme of theme.value">
-      <mat-expansion-panel-header>
-        {{theme.title}}
-      </mat-expansion-panel-header>
-      <pre> {{theme.quest}}</pre>
-    </mat-expansion-panel>
-  </mat-accordion>
+<div
+class="header"
+>
+  <button routerLink="questions" mat-raised-button color="primary">
+    ВОПРОСЫ
+  </button>
+  <button routerLink="forms" mat-raised-button color="primary">
+    FORMS
+  </button>
 
 </div>
+
+
+<router-outlet></router-outlet>

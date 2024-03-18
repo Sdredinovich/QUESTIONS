@@ -1,0 +1,12 @@
+<div *ngFor="let theme of themes | keyvalue">
+  <h1 style="margin-left: 15px">{{ theme.key }}</h1>
+  <mat-accordion >
+    <mat-expansion-panel  *ngFor="let theme of theme.value">
+      <mat-expansion-panel-header>
+        {{theme.title}}
+      </mat-expansion-panel-header>
+      <pre> {{theme.quest}}</pre>
+    </mat-expansion-panel>
+  </mat-accordion>
+
+</div>
