@@ -1,12 +1,16 @@
-<div *ngFor="let theme of themes | keyvalue">
-  <h1 style="margin-left: 15px">{{ theme.key }}</h1>
-  <mat-accordion >
-    <mat-expansion-panel  *ngFor="let theme of theme.value">
-      <mat-expansion-panel-header>
-        {{theme.title}}
-      </mat-expansion-panel-header>
-      <pre> {{theme.quest}}</pre>
-    </mat-expansion-panel>
-  </mat-accordion>
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let category of categories | keyvalue">
+    <mat-expansion-panel-header>
+      {{ category.key }}
+    </mat-expansion-panel-header>
 
-</div>
+    <mat-expansion-panel *ngFor="let theme of category.value">
+      <mat-expansion-panel-header>
+        {{ theme.title }}
+      </mat-expansion-panel-header>
+      <pre><code class="language-javascript">
+        {{theme.quest}}
+      </code></pre>
+    </mat-expansion-panel>
+  </mat-expansion-panel>
+</mat-accordion>
