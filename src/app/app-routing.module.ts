@@ -1,20 +1,26 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { QuestionsComponent } from './components/questions/questions.component';
 import { FormsComponent } from './components/forms/forms.component';
 
 const routes: Routes = [
   {
     path: 'questions',
-    component: QuestionsComponent,
-  },  {
+    loadComponent: () =>
+      import('./components/questions/questions.component').then(
+        (m) => m.QuestionsComponent,
+      ),
+  },
+  {
     path: 'forms',
-    component: FormsComponent,
+    loadComponent: () =>
+      import('./components/forms/forms.component').then(
+        (m) => m.FormsComponent,
+      ),
   },
   {
     path: '',
     redirectTo: 'questions',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
 ];
 
