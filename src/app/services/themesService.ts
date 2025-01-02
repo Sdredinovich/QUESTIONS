@@ -1403,16 +1403,19 @@ export class ThemesService {
       quest: `
       Это когда мы несолько раз указываем разную сигнатуру для функции, и в зависимости от типа входных данных возвращаем определенные типа
 
-      function foo(a:number):string
-      function foo(a:string):number
-      function foo(a:any){
-        if(typeof a === 'string'){
-          return +a
-        } else{
-          return a.toString()
-        }
+      function foo(a: number): string;
+      function foo(a: string): number;
 
+      function foo(a: number | string) {
+        if (typeof a === 'string') {
+          return +a;
+        } else {
+          return a.toString();
+        }
       }
+
+let f1 = foo('1'); //ожидает number
+let f2 = foo(1); // ожидает string
 
       let f1 = foo('1')//ожидает number
       let f2 = foo(1)// ожидает string
@@ -2751,4 +2754,3 @@ export class ThemesService {
     PATTERNS: this.PATTERNS,
   };
 }
-
