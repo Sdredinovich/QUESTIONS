@@ -2692,3 +2692,4 @@ export class ThemesService {
     PATTERNS: this.PATTERNS,
   };
 }
+
