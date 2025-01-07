@@ -29,9 +29,6 @@ export class FormsComponent {
     select: ['option1'],
   });
 
-
-
-
   formMethod = `
   // let obj = {
     // 'valueChanges':this.loginForm.valueChanges.subscribe(console.log),//Подписка на изменения всей форму

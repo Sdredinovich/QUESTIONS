@@ -1,0 +1,97 @@
+{
+  "name": "angular-helper",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "generators": {
+    "@schematics/angular:component": {
+      "style": "scss"
+    }
+  },
+  "sourceRoot": "apps/angular-helper/src",
+  "prefix": "app",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "options": {
+        "outputPath": "dist/apps/angular-helper",
+        "index": "apps/angular-helper/src/index.html",
+        "main": "apps/angular-helper/src/main.ts",
+        "polyfills": ["zone.js"],
+        "tsConfig": "apps/angular-helper/tsconfig.app.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angular-helper/src/favicon.ico",
+          "apps/angular-helper/src/assets"
+        ],
+        "styles": [
+          "node_modules/@angular/material/prebuilt-themes/purple-green.css",
+          "apps/angular-helper/src/styles.scss",
+          "node_modules/prismjs/themes/prism.css"
+        ],
+        "scripts": ["node_modules/prismjs/prism.js"]
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "2mb",
+              "maximumError": "2mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "aot": true,
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "angular-helper:build:production"
+        },
+        "development": {
+          "browserTarget": "angular-helper:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "angular-helper:build"
+      }
+    },
+    "test": {
+      "executor": "@angular-devkit/build-angular:karma",
+      "options": {
+        "polyfills": ["zone.js", "zone.js/testing"],
+        "tsConfig": "apps/angular-helper/tsconfig.spec.json",
+        "inlineStyleLanguage": "scss",
+        "assets": [
+          "apps/angular-helper/src/favicon.ico",
+          "apps/angular-helper/src/assets"
+        ],
+        "styles": [
+          "apps/angular-helper/@angular/material/prebuilt-themes/purple-green.css",
+          "apps/angular-helper/src/styles.scss"
+        ],
+        "scripts": []
+      }
+    }
+  }
+}

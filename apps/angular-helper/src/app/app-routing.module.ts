@@ -1,8 +1,6 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { FormsComponent } from './components/forms/forms.component';
+import { Routes } from '@angular/router';
 
-const routes: Routes = [
+export const routes: Routes = [
   {
     path: 'questions',
     loadComponent: () =>
@@ -23,8 +21,3 @@ const routes: Routes = [
     pathMatch: 'full',
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-})
-export class AppRoutingModule {}

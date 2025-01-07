@@ -1,6 +1,6 @@
+import { ThemesService } from './../../services/themesService';
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, inject } from '@angular/core';
-import { ThemesService } from 'src/app/services/themesService';
 import { MatExpansionModule } from '@angular/material/expansion';
 
 @Component({
